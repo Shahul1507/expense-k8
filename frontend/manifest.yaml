@@ -24,15 +24,15 @@ spec:
       containers:
       - name: frontend
         image: joindevops/frontend:v1
----  
+---
 kind: Service
 apiVersion: v1
 metadata:
   name: frontend
   namespace: expense
 spec:
+  type: LoadBalancer
   selector:
-    type: LoadBalancer
     app: frontend
     tier: web
     project: expense
@@ -40,4 +40,4 @@ spec:
   - name: frontend-port
     protocol: TCP
     port: 80 # service port
-    targetPort: 80 # container port        
+    targetPort: 80 # container port
