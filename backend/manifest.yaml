@@ -1,5 +1,5 @@
-apiversion: v1
-kind: configMap
+apiVersion: v1
+kind: ConfigMap
 metadata:
   name: backend
   namespace: expense
@@ -35,7 +35,7 @@ spec:
         envFrom:
         - configMapRef:
             name: backend
----  
+---
 kind: Service
 apiVersion: v1
 metadata:
@@ -50,4 +50,4 @@ spec:
   - name: backend-port
     protocol: TCP
     port: 8080 # service port
-    targetPort: 8080 # container port        
+    targetPort: 8080 # container port     
